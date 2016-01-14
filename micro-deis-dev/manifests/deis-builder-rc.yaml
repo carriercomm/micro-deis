@@ -8,11 +8,11 @@ metadata:
 spec:
   replicas: 1
   selector:
-    name: deis-builder
+    app: deis-builder
   template:
     metadata:
       labels:
-        name: deis-builder
+        app: deis-builder
     spec:
       containers:
         - name: deis-builder
@@ -37,7 +37,13 @@ spec:
             - name: minio-user
               mountPath: /var/run/secrets/object/store
               readOnly: true
+            - name: builder-key-auth
+              mountPath: /var/run/secrets/api/auth
+              readOnly: true
       volumes:
         - name: minio-user
           secret:
             secretName: minio-user
+        - name: builder-key-auth
+          secret:
+            secretName: builder-key-auth
