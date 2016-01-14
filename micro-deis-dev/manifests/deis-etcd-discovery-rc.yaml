@@ -29,7 +29,7 @@ spec:
             - containerPort: 2381
           env:
             - name: DEIS_ETCD_CLUSTER_SIZE
-              value: "3"
+              value: "1"
             - name: ETCD_LISTEN_CLIENT_URLS
               value: http://0.0.0.0:2381
             - name: POD_NAMESPACE

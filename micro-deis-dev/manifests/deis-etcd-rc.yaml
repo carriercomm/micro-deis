@@ -7,7 +7,7 @@ metadata:
     name: deis-etcd-1
     heritage: deis
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     app: deis-etcd-1
   template:
@@ -25,7 +25,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: DEIS_ETCD_CLUSTER_SIZE
-              value: "3"
+              value: "1"
             - name: ETCD_NAME
               value: deis1
             - name: POD_NAMESPACE
